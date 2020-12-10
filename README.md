@@ -1,6 +1,6 @@
 # react-native-tracking-transparency
 
-A React Native Library for interacting with the tracking API from iOS 14.
+🕵️ A React Native Library for interacting with the tracking API from iOS 14.
 
 ## Installation
 
