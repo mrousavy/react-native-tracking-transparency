@@ -2,6 +2,15 @@
 
 🕵️ A React Native Library for interacting with the tracking API from iOS 14.
 
+<br />
+<br />
+<p align="center">
+  <img src="./img/example-1.png" width="30%">
+  <img src="./img/example-2.png" width="30%">
+</p>
+<br />
+<br />
+
 ## Installation
 
 1. Install package
