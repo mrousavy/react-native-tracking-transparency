@@ -15,6 +15,8 @@ A React Native Library for interacting with the tracking API from iOS 14.
 
 ## Usage
 
+See the [example](example/) app for a full code example.
+
 ### getTrackingStatus
 
 Gets the current Tracking API status. As of iOS 14, Apple requires apps to only enable tracking (e.g.: advertiser ID collection) when the user has granted tracking permissions.
