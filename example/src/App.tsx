@@ -1,17 +1,36 @@
 import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import TrackingTransparency from 'react-native-tracking-transparency';
+import { StyleSheet, View, Text, Button, Alert } from 'react-native';
+import {
+  getTrackingStatus,
+  requestTrackingPermission,
+  TrackingStatus,
+} from 'react-native-tracking-transparency';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [trackingStatus, setTrackingStatus] = React.useState<
+    TrackingStatus | '(loading)'
+  >('(loading)');
 
   React.useEffect(() => {
-    TrackingTransparency.multiply(3, 7).then(setResult);
+    getTrackingStatus()
+      .then((status) => {
+        setTrackingStatus(status);
+      })
+      .catch((e) => Alert.alert('Error', e?.toString?.() ?? e));
+  }, []);
+  const request = React.useCallback(async () => {
+    try {
+      const status = await requestTrackingPermission();
+      setTrackingStatus(status);
+    } catch (e) {
+      Alert.alert('Error', e?.toString?.() ?? e);
+    }
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Tracking Status: {trackingStatus}</Text>
+      <Button title="Request Tracking Permission" onPress={request} />
     </View>
   );
 }
