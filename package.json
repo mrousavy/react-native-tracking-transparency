@@ -1,6 +1,6 @@
 {
   "name": "react-native-tracking-transparency",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A React Native Library for interacting with the tracking API from iOS 14.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
