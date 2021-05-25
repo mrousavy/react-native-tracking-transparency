@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 
 
-		5E555C0D2413F4C50049A1A2 /* TrackingTransparency.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* TrackingTransparency.mm */; };
+		5E555C0D2413F4C50049A1A2 /* TrackingTransparency.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* TrackingTransparency.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,7 +29,7 @@
 
 
 		B3E7B5881CC2AC0600A0062D /* TrackingTransparency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingTransparency.h; sourceTree = "<group>"; };
-		B3E7B5891CC2AC0600A0062D /* TrackingTransparency.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TrackingTransparency.mm; sourceTree = "<group>"; };
+		B3E7B5891CC2AC0600A0062D /* TrackingTransparency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TrackingTransparency.m; sourceTree = "<group>"; };
 
 /* End PBXFileReference section */
 
@@ -58,7 +58,7 @@
 
 
 				B3E7B5881CC2AC0600A0062D /* TrackingTransparency.h */,
-				B3E7B5891CC2AC0600A0062D /* TrackingTransparency.mm */,
+				B3E7B5891CC2AC0600A0062D /* TrackingTransparency.m */,
 
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
@@ -123,7 +123,7 @@
 			files = (
 
 
-				5E555C0D2413F4C50049A1A2 /* TrackingTransparency.mm in Sources */,
+				5E555C0D2413F4C50049A1A2 /* TrackingTransparency.m in Sources */,
 
 			);
 			runOnlyForDeploymentPostprocessing = 0;
