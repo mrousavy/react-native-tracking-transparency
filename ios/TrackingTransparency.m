@@ -1,6 +1,10 @@
 #import "TrackingTransparency.h"
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
 
+@interface TrackingTransparency ()
+@property (weak) id _observer;
+@end
+
 @implementation TrackingTransparency
 
 RCT_EXPORT_MODULE()
@@ -17,9 +21,23 @@ RCT_EXPORT_METHOD(getTrackingStatus:(RCTPromiseResolveBlock)resolve rejector:(RC
 RCT_EXPORT_METHOD(requestTrackingPermission:(RCTPromiseResolveBlock)resolve rejector:(RCTPromiseRejectBlock)reject)
 {
     if (@available(iOS 14, *)) {
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            resolve([TrackingTransparency convertTrackingStatusToString:status]);
-        }];
+        if (UIApplication.sharedApplication.applicationState == UIApplicationStateActive) {
+            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+                resolve([TrackingTransparency convertTrackingStatusToString:status]);
+            }];
+        }
+        else {
+            __weak TrackingTransparency *weakSelf = self;
+            
+            self._observer = [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue: [NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+                
+                [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+                    resolve([TrackingTransparency convertTrackingStatusToString:status]);
+                }];
+                
+                [[NSNotificationCenter defaultCenter] removeObserver:weakSelf._observer];
+            }];
+        }
     } else {
         resolve(@"unavailable");
     }
