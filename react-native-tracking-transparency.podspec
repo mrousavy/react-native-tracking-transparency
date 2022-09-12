@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   
 
   s.dependency "React"
+  s.weak_framework = "AppTrackingTransparency"
 end
